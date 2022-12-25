@@ -10,6 +10,7 @@ public class Goodbigsmile : MonoBehaviour
     public float timer = 0;
     public GameObject dialogBox;
     public GameObject abc;
+    public GameObject Mug_shot_npc_2;
     public Text dialogBoxText;
     public string signText; 
     public bool isPlayerInSign;
@@ -47,6 +48,7 @@ public class Goodbigsmile : MonoBehaviour
         {
             end = true;
             abc.transform.position += new Vector3(1f,0,0);
+            Mug_shot_npc_2.SetActive(true);
             Invoke("Destroy", 1);
         }   
     }
@@ -65,6 +67,8 @@ public class Goodbigsmile : MonoBehaviour
         {
             isPlayerInSign = false;
             dialogBox.SetActive(false);
+            Mug_shot_npc_2.SetActive(false);
+
         }
         
     }

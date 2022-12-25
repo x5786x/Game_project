@@ -8,6 +8,7 @@ public class Sign : MonoBehaviour
     public GameObject portal;
     private Vector3 originalPostion ;
     public GameObject dialogBox;
+    public GameObject Mug_shot_npc_1;
     public Text dialogBoxText;
     public string signText;
     private bool isPlayerInSign;
@@ -44,6 +45,7 @@ public class Sign : MonoBehaviour
             }
             dialogBoxText.text = signText;
             dialogBox.SetActive(true);
+            Mug_shot_npc_1.SetActive(true);
         }
         if(count == 2)
             canGoToBossRoom = true;
@@ -59,6 +61,8 @@ public class Sign : MonoBehaviour
         if(Player.move == true)
         {
             dialogBox.SetActive(false);
+            Mug_shot_npc_1.SetActive(false);
+
             count++; // 1
         }
     }
@@ -69,7 +73,9 @@ public class Sign : MonoBehaviour
             timer = 0;
             signText = "看來前面有一隻怪物希望你還記得怎麼戰鬥";
             dialogBoxText.text = signText;
-            dialogBox.SetActive(true);   
+            dialogBox.SetActive(true);  
+            Mug_shot_npc_1.SetActive(true);
+ 
         }
         if(other.gameObject.CompareTag("Player") && other.GetType().ToString() == "UnityEngine.CapsuleCollider2D")         
         {
@@ -83,6 +89,8 @@ public class Sign : MonoBehaviour
         {
             isPlayerInSign = false;
             dialogBox.SetActive(false);
+            Mug_shot_npc_1.SetActive(false);
+
         }
         
     }
