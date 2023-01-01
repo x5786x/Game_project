@@ -1,3 +1,3 @@
-*.unity binary diff=unity
-*.prefab binary diff=unity
-*.assts binary diff=unity
+*.unity binary
+*.prefab binary
+*.assts binary
