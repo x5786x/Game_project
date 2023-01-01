@@ -28,6 +28,11 @@ public class CameraFollow : MonoBehaviour
                 {
                     ChangeToBossRoom();
                 }
+                if(Scoreborad.restart)
+                {
+                    SetCamPosLimit(firstSceneMin.transform.position, firstSceneMax.transform.position);
+                    Scoreborad.restart = false;
+                }
                 Vector3 playerPos = new Vector3(Player.position.x, Player.position.y, transform.position.z);
                 playerPos.x = Mathf.Clamp(playerPos.x, minPosition.x, maxPosition.x);
                 playerPos.y = Mathf.Clamp(playerPos.y, minPosition.y, maxPosition.y);

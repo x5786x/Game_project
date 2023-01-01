@@ -28,6 +28,7 @@ public class Goodbigsmile : MonoBehaviour
         timer += Time.deltaTime;
         if(Input.GetKeyDown(KeyCode.E) && isPlayerInSign) //在人物範圍內就可點擊E觸發
         {       
+            Mug_shot_npc_2.SetActive(true);
             if(count == 0)
                 signText = "你好先生 嘻嘻嘻~~";               
             if(count == 1)
@@ -47,8 +48,7 @@ public class Goodbigsmile : MonoBehaviour
         if(count >= 4 && timer >= 2.0f)
         {
             end = true;
-            abc.transform.position += new Vector3(1f,0,0);
-            Mug_shot_npc_2.SetActive(true);
+            abc.transform.position += new Vector3(1f,0,0);   
             Invoke("Destroy", 1);
         }   
     }

@@ -12,13 +12,12 @@ public class Boss1 : Enemy
     public CapsuleCollider2D original;
     public GameObject mirror;
     public GameObject goodbigsmile;
-    static public bool boss1down;
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
         
-        boss1down = false;
+        Scoreborad.bossDown = false;
         rb = GetComponent<Rigidbody2D>();
     }
     
@@ -26,7 +25,7 @@ public class Boss1 : Enemy
     {   
         if(hp <= 0)
         {    
-            boss1down = true;
+            Scoreborad.bossDown = true;
             goodbigsmile.SetActive(true);
         } 
         base.Update();

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InstantiateMirror :  MonoBehaviour
 {
+    public GameObject generateMirrorPosition;
     public BoxCollider2D mirror;
     static public bool getmirror = false;
     public GameObject mirror1;
@@ -18,10 +19,10 @@ public class InstantiateMirror :  MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Boss1.boss1down)
+        if(Scoreborad.bossDown)
         {
-            Instantiate(mirror1, new Vector3(57.49f, -3.87f, 0f), new Quaternion(0,0,0,0));
-            Boss1.boss1down = false;
+            Instantiate(mirror1, generateMirrorPosition.transform.position, new Quaternion(0, 0, 0 ,0));
+            Scoreborad.bossDown = false;
         }
         if(getmirror && Goodbigsmile.end)
         {

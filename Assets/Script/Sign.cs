@@ -10,7 +10,7 @@ public class Sign : MonoBehaviour
     public GameObject dialogBox;
     public GameObject Mug_shot_npc_1;
     public Text dialogBoxText;
-    public string signText;
+    private string signText;
     private bool isPlayerInSign;
     GameObject player;
     public int waitingTime = 2;
@@ -19,6 +19,7 @@ public class Sign : MonoBehaviour
     static public bool canGoToBossRoom = false;
     void Start()
     {    
+        signText = "知道要怎麼移動嗎?";
         count = 0;
         Player.teach1 = false; 
         Player.move = false;
@@ -33,49 +34,31 @@ public class Sign : MonoBehaviour
         {
             count++; // 1
             transform.position = new Vector3 (13.66f, -5, 0);
-            signText = "做的不錯，但你的碎片之旅程才剛剛開始你要蒐集四片碎片記得嗎?  加油吧!!!";
+            signText = "做的不錯，但你的碎片之旅程才剛\n剛開始你要蒐集四片碎片記得嗎?\n加油吧!!!";
             dialogBoxText.text = signText;
         }
         if(Input.GetKeyDown(KeyCode.E) && isPlayerInSign) //在人物範圍內就可點擊E觸發
         { 
-            if(count == 1)
-            {
-                timer = 0;
-                count++;
-            }
             dialogBoxText.text = signText;
             dialogBox.SetActive(true);
             Mug_shot_npc_1.SetActive(true);
         }
-        if(count == 2)
+        if(count == 1)
             canGoToBossRoom = true;
         if(canGoToBossRoom)
         {
             portal.SetActive(true);
         }
     }
-    void Teaching1()
-    {
-        timer = 0;
-        Player.teach1 = true;
-        if(Player.move == true)
-        {
-            dialogBox.SetActive(false);
-            Mug_shot_npc_1.SetActive(false);
-
-            count++; // 1
-        }
-    }
     void OnTriggerEnter2D(Collider2D other) //判斷是否在人物範圍內
     {
-        if(count == 1)
+        if(count == 0)
         {
             timer = 0;
-            signText = "看來前面有一隻怪物希望你還記得怎麼戰鬥";
+            signText = "知道要怎麼移動嗎?";
             dialogBoxText.text = signText;
             dialogBox.SetActive(true);  
             Mug_shot_npc_1.SetActive(true);
- 
         }
         if(other.gameObject.CompareTag("Player") && other.GetType().ToString() == "UnityEngine.CapsuleCollider2D")         
         {

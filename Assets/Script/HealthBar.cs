@@ -24,6 +24,8 @@ public class HealthBar : MonoBehaviour
     public void Replay()
     {
         Time.timeScale = 1f;
+        Scoreborad.restart = true;
+        GoToBossroom.bossroom = false;
         SceneManager.LoadScene("GameTest");
     }
     public void MainMenu()

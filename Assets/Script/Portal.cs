@@ -6,11 +6,15 @@ using UnityEngine.UI;
 public class Portal : MonoBehaviour
 {
     static public bool inPortal = false;
+    public GameObject Effect;
+    Vector3 effectPostion;
     public Image panelStatus;
     public GameObject panel;
     public BoxCollider2D portalCollider;
     void Start()
     {
+        effectPostion = new Vector3(transform.position.x, transform.position.y, -5);
+        Instantiate(Effect, effectPostion, new Quaternion(0 ,0 ,0 ,0));
         portalCollider = GetComponent<BoxCollider2D>();
         panelStatus = GetComponent<Image>();
     }

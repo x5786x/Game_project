@@ -56,12 +56,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if((!knockbacking && !dashing) || Scoreborad.Level1Animtion)
+        if((!knockbacking && !dashing))
         {
             Move();
             Jump();    
         }
-          
         CheckGround();
         SwitchAnimation();
         if(Input.GetKeyDown(KeyCode.LeftShift) && canDash)
