@@ -19,7 +19,6 @@ public class BossHealthBar : MonoBehaviour
     {
         if(!Scoreborad.bossDown && GoToBossroom.bossroom)
         {
-            Debug.Log(BossHealthCurrent);
             healthBar.fillAmount = (float)BossHealthCurrent / (float)BossHealthMax;
             healthText.text = BossHealthCurrent.ToString() + "/" + BossHealthMax.ToString();
         }

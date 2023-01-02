@@ -56,18 +56,25 @@ public class Player : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if((!knockbacking && !dashing))
+        if(!Scoreborad.eventOn)
         {
-            Move();
-            Jump();    
+            if((!knockbacking && !dashing))
+            {
+                Move();
+                Jump();    
+            }
+            if(Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+            {
+                StartCoroutine("Dash");
+            }
+            SwitchAnimation(); 
         }
-        CheckGround();
-        SwitchAnimation();
-        if(Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        else if(Scoreborad.eventOn)
         {
-            StartCoroutine("Dash");
+            playerRb.velocity = Vector2.down;
+            anim.Play("Idle", 0, 0);
         }
-        
+        CheckGround();    
     }
     
     

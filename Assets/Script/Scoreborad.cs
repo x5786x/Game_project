@@ -9,4 +9,5 @@ public static class Scoreborad
     public static bool Level1Animtion = false;
     public static bool bossDown = false;
     public static bool restart = false;
+    public static bool eventOn = false;
 }

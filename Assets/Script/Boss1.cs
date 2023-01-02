@@ -15,8 +15,7 @@ public class Boss1 : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        base.Start();
-        
+        base.Start();  
         Scoreborad.bossDown = false;
         rb = GetComponent<Rigidbody2D>();
     }
