@@ -26,9 +26,9 @@ public class HealthBar : MonoBehaviour
         Time.timeScale = 1f;
         Scoreborad.restart = true;
         GoToBossroom.bossroom = false;
-        SceneManager.LoadScene("GameTest");
+        SceneManager.LoadScene(MainMenu.sceneName);
     }
-    public void MainMenu()
+    public void GoToMainMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");

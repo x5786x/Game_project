@@ -15,7 +15,6 @@ public class LevelLoading : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(panel.color.a);
         if(panel.color.a <= 0)
         {
             loadingPanel.SetActive(false);

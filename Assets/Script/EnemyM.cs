@@ -6,7 +6,6 @@ public class EnemyM : Enemy
 {
     public BoxCollider2D originalColliderPostion;
     public BoxCollider2D attackCollider;
-    float timer = 0;
     public float attackDelayTime;
     public float moveSpeed = 3.0f;
     public float trackMax;

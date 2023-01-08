@@ -5,7 +5,6 @@ using UnityEngine;
 public class InstantiateMirror :  MonoBehaviour
 {
     public GameObject generateMirrorPosition;
-    public BoxCollider2D mirror;
     static public bool getmirror = false;
     public GameObject mirror1;
     public GameObject portal;
@@ -13,7 +12,6 @@ public class InstantiateMirror :  MonoBehaviour
     void Start()
     {
         getmirror = false;
-        mirror = GameObject.FindGameObjectWithTag("Mirror").GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -24,7 +22,7 @@ public class InstantiateMirror :  MonoBehaviour
             Instantiate(mirror1, generateMirrorPosition.transform.position, new Quaternion(0, 0, 0 ,0));
             Scoreborad.bossDown = false;
         }
-        if(getmirror && Goodbigsmile.end)
+        if(getmirror || Goodbigsmile.end)
         {
             portal.SetActive(true);
         }

@@ -65,6 +65,7 @@ public class Player : MonoBehaviour
             }
             if(Input.GetKeyDown(KeyCode.LeftShift) && canDash)
             {
+                anim.SetTrigger("Dash");
                 StartCoroutine("Dash");
             }
             SwitchAnimation(); 
@@ -144,7 +145,7 @@ public class Player : MonoBehaviour
         face = (enemyPosition.x < transform.position.x) ? 1 : -1; // -1敵人在左邊 1敵人在右邊  
         transform.localScale = new Vector2(-face, 1);
     }
-    public void DamegePlayer(int damege, Transform enemy, Vector2 enemyPosition)    
+    public void DamegePlayer(int damege, Vector2 enemyPosition)    
     {     
         AccordingDirectionFlip(enemyPosition);
         currentstate = anim.GetCurrentAnimatorStateInfo(0);
@@ -169,7 +170,7 @@ public class Player : MonoBehaviour
     }
     IEnumerator Dash()
     {
-        anim.SetTrigger("Dash");
+        
         canDash = false;
         dashing = true;
         playerRb.gravityScale = 0;  // 重力調為0 不然跳躍Dash時會往下掉

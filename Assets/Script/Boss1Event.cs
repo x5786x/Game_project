@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Boss1Event : MonoBehaviour
 {
+    public GameObject bossHpBar;
     public GameObject boss;
     public GameObject generateBoss;
     public Transform movePosition;
@@ -12,7 +13,8 @@ public class Boss1Event : MonoBehaviour
     public Animator bossAnim;
     AnimatorStateInfo End;
     public float smooth;
-    public float distance;
+    float distance;
+    float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,15 +28,21 @@ public class Boss1Event : MonoBehaviour
         cameraTransform.position = Vector3.Lerp(cameraTransform.position, movePosition.position, smooth * Time.deltaTime); // A到B點
         distance = (cameraTransform.position - movePosition.position).magnitude;
         if(distance <= 0.3f)
-        {
+        {   
             bossAnim.SetBool("Generate", true);
             End = bossAnim.GetCurrentAnimatorStateInfo(0);
-            if(End.normalizedTime >= 0.95 && End.IsName("First"))
+            if(End.normalizedTime >= 0.99 && End.IsName("First"))
             {
-                boss.SetActive(true);
-                Scoreborad.eventOn = false;
-                Destroy(generateBoss);
-                Destroy(gameObject.transform.parent.gameObject); // 摧毀父物件
+                timer += Time.deltaTime;
+                if(timer >= 1.5f)
+                {
+                    boss.SetActive(true);
+                    Scoreborad.eventOn = false;
+                    cameraFollow.GetComponent<CameraFollow>().enabled = true;
+                    bossHpBar.SetActive(true);
+                    Destroy(generateBoss);
+                    Destroy(gameObject.transform.parent.gameObject); // 摧毀父物件
+                }
             } 
         }
     }

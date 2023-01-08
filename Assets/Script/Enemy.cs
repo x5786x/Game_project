@@ -88,7 +88,7 @@ public class Enemy : MonoBehaviour
             {
                 timer = 0;
                 enemyPosition = rb.worldCenterOfMass;
-                playerHp.DamegePlayer(damage, gameObject.transform, enemyPosition);
+                playerHp.DamegePlayer(damage, enemyPosition);
             }
         }
     }
@@ -100,7 +100,7 @@ public class Enemy : MonoBehaviour
             {
                 timer = 0;
                 enemyPosition = rb.worldCenterOfMass;
-                playerHp.DamegePlayer(damage, gameObject.transform, enemyPosition);
+                playerHp.DamegePlayer(damage, enemyPosition);
                 int playerLayer = other.gameObject.layer;
                 StartCoroutine(CollisionOff(Player.hitWaitingTime, playerLayer));
             }

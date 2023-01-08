@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectBoss1Event : MonoBehaviour
+public class DamageFloor : MonoBehaviour
 {
-    public GameObject eventScript;
+    public Player playerHp;
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerHp = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -20,9 +20,7 @@ public class DetectBoss1Event : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Scoreborad.eventOn = true;
-            eventScript.GetComponent<Boss1Event>().enabled = true;
+            playerHp.DamegePlayer(2, Vector2.up);
         }
-        
     }
 }

@@ -14,7 +14,7 @@ public class SwitchLevelAnimtion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Scoreborad.Level1Animtion = false;
+
         panel = GetComponent<Image>();
         color = new Color(0, 0, 0, 0);
         alpha = panel.color.a;
@@ -31,7 +31,7 @@ public class SwitchLevelAnimtion : MonoBehaviour
         {
             if(alpha == 0)
             {
-                Scoreborad.Level1Animtion = true;
+
                 loadingPanel.SetActive(false);
             }
             else

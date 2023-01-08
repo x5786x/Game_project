@@ -1,17 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Boss1 : Enemy
 {
-    public GameObject BossHpBar;
     float distance;
     public float attackDelayTime;
-    float timer = 0;
     AnimatorStateInfo attacking;
     public CapsuleCollider2D original;
     public GameObject mirror;
     public GameObject goodbigsmile;
+    public ParticleSystem attack2Effect;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,24 +31,43 @@ public class Boss1 : Enemy
         {
             distance = Mathf.Abs(63.29f - playerTransform.position.x);
             timer += Time.deltaTime;
-            if(distance <= attackDistance)
-            {                  
+            if(distance >= attackDistance)
+            {    
+                if(timer >= attackDelayTime)
+                {              
+                    anim.SetTrigger("Attack2");
+                    timer = 0; 
+                } 
+            } 
+            else
+            {
+                int count;         
+                count = Random.Range(0, 2); // 0~1
                 if(timer >= attackDelayTime)
                 {
-                    BossHpBar.SetActive(true);
-                    anim.SetTrigger("Attack");
+                    switch(count)
+                    {
+                        case 0:
+                            anim.SetTrigger("Attack");
+                            break;
+                        case 1:
+                            anim.SetTrigger("Attack2");
+                            break;
+                    }            
                     timer = 0;
-                }        
-            } 
+                } 
+            }
         }
     }
-    public void AttackOn()
+    void Attack2Event()
     {
-        original.enabled = false;
+        int time = 2;
+        attack2Effect.Play();
+        Scoreborad.boss1Attack2 = true;
+        while(timer < time)
+        {
+            timer += Time.deltaTime;
+        }
+        timer = 0;
     }
-    public void Recover()
-    {
-        original.enabled = true;
-    }
-    
 }

@@ -29,6 +29,8 @@ AnimationClip:
       value: {fileID: -512750713, guid: 3563510d869ab04428964926aee8b970, type: 3}
     - time: 1.5
       value: {fileID: 1297831310, guid: 3563510d869ab04428964926aee8b970, type: 3}
+    - time: 1.6875
+      value: {fileID: -456925222, guid: 3563510d869ab04428964926aee8b970, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -53,12 +55,13 @@ AnimationClip:
     - {fileID: 1346492065, guid: 3563510d869ab04428964926aee8b970, type: 3}
     - {fileID: -512750713, guid: 3563510d869ab04428964926aee8b970, type: 3}
     - {fileID: 1297831310, guid: 3563510d869ab04428964926aee8b970, type: 3}
+    - {fileID: -456925222, guid: 3563510d869ab04428964926aee8b970, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.5625
+    m_StopTime: 1.75
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -77,4 +80,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1.5
+    functionName: Attack2Event
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

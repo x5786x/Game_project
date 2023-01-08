@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7701878758003305016}
   - component: {fileID: 7701878758003304997}
   - component: {fileID: 7701878758003304996}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -170,9 +170,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4335afd43b9991d40a898c87cbd7cc05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackTime: 1
-  knockbackForceX: 5
-  knockbackForceY: 3
+  dashTime: 0.2
+  dashSpeed: 20
+  dashCooldownTime: 2
+  knockbackTime: 0.6
+  knockbackForceX: 4
+  knockbackForceY: 1.2
   hp: 20
   doubleJump: 0
   doubleJumpSpeed: 5
@@ -216,9 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2fae3f0c4f7bae4692f7007835392a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mirror: {fileID: 5178031663689295660, guid: d7e62743bf407394a8259ff09ee269f6, type: 3}
-  getmirror: 0
+  generateMirrorPosition: {fileID: 0}
   mirror1: {fileID: 5178031663689295661, guid: d7e62743bf407394a8259ff09ee269f6, type: 3}
+  portal: {fileID: 0}
 --- !u!1 &7701878759347228694
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +233,7 @@ GameObject:
   - component: {fileID: 7701878759347228693}
   - component: {fileID: 7701878759347228692}
   - component: {fileID: 7701878759347228691}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerAttack
   m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
@@ -264,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47da3217f30100a4a8408a52dcb4202f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDelayTime: 0.4
   damage: 3
   isboss: 0
 --- !u!60 &7701878759347228691
