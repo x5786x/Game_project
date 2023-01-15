@@ -6,7 +6,6 @@ public class EnemyBat : Enemy
 {
     
     public float trackDistance;
-    public float distance;
     public float speed;
     public float startWaitTime;
     public float waitTime;

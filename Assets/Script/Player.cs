@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    bool playerDead;
     float moveDir;
     static public float hitWaitingTime;
     bool canDash = true;
@@ -50,14 +51,17 @@ public class Player : MonoBehaviour
         feet = GetComponent<BoxCollider2D>();
         poly = GameObject.FindGameObjectWithTag("PlayerAttack").GetComponent<PolygonCollider2D>();
         hitWaitingTime = knockbackTime;
+        playerDead = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        if(!Scoreborad.eventOn)
+        if(!playerDead)
         {
+            if(!Scoreborad.eventOn)
+            {
             if((!knockbacking && !dashing))
             {
                 Move();
@@ -69,16 +73,31 @@ public class Player : MonoBehaviour
                 StartCoroutine("Dash");
             }
             SwitchAnimation(); 
+            }   
+            if(Scoreborad.eventOn)
+            {
+                playerRb.velocity = Vector2.down;
+                anim.Play("Idle", 0, 0);
+            }
+            CheckGround();  
         }
-        else if(Scoreborad.eventOn)
+        if(hp <= 0)
         {
-            playerRb.velocity = Vector2.down;
-            anim.Play("Idle", 0, 0);
-        }
-        CheckGround();    
+            playerDeath();            
+        }    
+         
     }
     
-    
+    void FixedUpdate() 
+    {
+        if(!playerDead && !Scoreborad.eventOn)
+        {
+            if((!knockbacking && !dashing))
+            {
+                Move();   
+            }
+        }
+    }
     void CheckGround()
     {
         isGround = feet.IsTouchingLayers(LayerMask.GetMask("Ground"));
@@ -154,23 +173,29 @@ public class Player : MonoBehaviour
             StartCoroutine(Knockback(knockbackTime));
             anim.SetTrigger("Hit");
             hp -= damege;
-            if(hp < 0)  //人物血量不能低於0
+            if(hp <= 0)  //人物血量不能低於0
             {
                 hp = 0;
             }
             HealthBar.HealthCurrent = hp;  //血量連結
-            if(hp <= 0)
-            {
-                Dietime();  
-                Destroy(gameObject);         
-            }
+            
             BlinkPlayer(blinks,blinkTime);
             timer = 0;  
         }
     }
+    void playerDeath()
+    {
+        anim.SetBool("Death", true);
+        playerDead = true;
+        currentstate = anim.GetCurrentAnimatorStateInfo(0);
+        if(currentstate.normalizedTime >= 0.95 && currentstate.IsName("Death"))
+        {     
+            Dietime();     
+            Destroy(gameObject);          
+        }
+    }
     IEnumerator Dash()
     {
-        
         canDash = false;
         dashing = true;
         playerRb.gravityScale = 0;  // 重力調為0 不然跳躍Dash時會往下掉

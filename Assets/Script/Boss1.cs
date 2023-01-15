@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Boss1 : Enemy
 {
-    float distance;
     public float attackDelayTime;
     AnimatorStateInfo attacking;
     public CapsuleCollider2D original;

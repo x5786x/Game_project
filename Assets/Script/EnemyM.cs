@@ -10,7 +10,6 @@ public class EnemyM : Enemy
     public float moveSpeed = 3.0f;
     public float trackMax;
     public float trackMin;
-    float distance;
     // Start is called before the first frame update
     public void Start()
     {

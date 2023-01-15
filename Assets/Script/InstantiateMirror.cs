@@ -22,10 +22,17 @@ public class InstantiateMirror :  MonoBehaviour
             Instantiate(mirror1, generateMirrorPosition.transform.position, new Quaternion(0, 0, 0 ,0));
             Scoreborad.bossDown = false;
         }
-        if(getmirror || Goodbigsmile.end)
+        if(Scoreborad.level == 1)
         {
-            portal.SetActive(true);
+            if(Goodbigsmile.end && getmirror)
+                portal.SetActive(true);
         }
+        else
+        {   
+            if(getmirror || Goodbigsmile.end)
+                portal.SetActive(true);
+        }
+        
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -33,10 +40,8 @@ public class InstantiateMirror :  MonoBehaviour
         {
             Destroy(GameObject.FindGameObjectWithTag("Mirror"));
             getmirror = true;
-            
-            Scoreborad.score += 1;
+            Scoreborad.score = Scoreborad.level + 1;
         }
-            
     }
 }
  

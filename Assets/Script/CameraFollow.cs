@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    public bool free = false;
     public GameObject firstSceneMin;
     public GameObject firstSceneMax;
     public GameObject bossSceneMin;
@@ -16,7 +17,8 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         CameraPos = Camera.main.transform.position;
-        SetCamPosLimit(firstSceneMin.transform.position, firstSceneMax.transform.position);
+        if(!free)
+            SetCamPosLimit(firstSceneMin.transform.position, firstSceneMax.transform.position);
     }
     void LateUpdate() 
     {
@@ -34,8 +36,11 @@ public class CameraFollow : MonoBehaviour
                     Scoreborad.restart = false;
                 }
                 Vector3 playerPos = new Vector3(Player.position.x, Player.position.y, transform.position.z);
-                playerPos.x = Mathf.Clamp(playerPos.x, minPosition.x, maxPosition.x);
-                playerPos.y = Mathf.Clamp(playerPos.y, minPosition.y, maxPosition.y);
+                if(!free)
+                {
+                    playerPos.x = Mathf.Clamp(playerPos.x, minPosition.x, maxPosition.x);
+                    playerPos.y = Mathf.Clamp(playerPos.y, minPosition.y, maxPosition.y);   
+                }    
                 transform.position = playerPos;
                 Vector3 CamPos = new Vector2 (playerPos.x, playerPos.y);
             }

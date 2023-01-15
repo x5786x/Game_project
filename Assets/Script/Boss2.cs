@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Boss2 : Enemy
 {
+    float miss;
     private float time = 0;
     public float attackDelayTime = 3;
     private int count;
     private float playerLastPositionX;
     private int animSpeed = 0;
     private float animTime;
-    private float distance;
     public float jumpSpeed;
     private Vector2 jumpVel;
     private Vector2 boss2Position;
@@ -23,14 +23,18 @@ public class Boss2 : Enemy
         count = 0;
         jumpVel = new Vector2(0f, jumpSpeed);
         bossCollider = GetComponent<BoxCollider2D>();
+        
     }
     void Update()
     {
-        base.Update();   
+        base.Update();
+        if(hp <= 0)
+            Scoreborad.bossDown = true;   
         time += Time.deltaTime;     
         animInfo = anim.GetCurrentAnimatorStateInfo(0);
         animTime = animInfo.normalizedTime;
-        boss2Position = new Vector2(bossCollider.bounds.center.x - transform.position.x, transform.position.y); 
+        miss = bossCollider.bounds.center.x - transform.position.x;
+        boss2Position = new Vector2(bossCollider.bounds.center.x, transform.position.y); 
         distance = Vector2.Distance(playerTransform.position, boss2Position);
         if(distance < attackDistance && time > attackDelayTime)
         {
@@ -77,7 +81,7 @@ public class Boss2 : Enemy
         if(boss2Position.y > 8) // 跳出畫面外
         {
             animSpeed = 1;       
-            transform.position = new Vector2(playerLastPositionX - boss2Position.x, boss2Position.y); // 將Boss移至玩家正上方
+            transform.position = new Vector2(playerLastPositionX - miss, boss2Position.y); // 將Boss移至玩家正上方
         }
     }
     void CheckGround()

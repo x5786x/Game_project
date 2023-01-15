@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public float distance;
     public float timer;
     private Vector2 direction;
     public float attackDistance;
