@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Scoreborad.level);
         timer += Time.deltaTime;
         if(!playerDead)
         {
@@ -166,22 +167,26 @@ public class Player : MonoBehaviour
     }
     public void DamegePlayer(int damege, Vector2 enemyPosition)    
     {     
-        AccordingDirectionFlip(enemyPosition);
-        currentstate = anim.GetCurrentAnimatorStateInfo(0);
-        if(currentstate.IsName("GetHit") == false && timer >= invincibleTime)
-        {             
-            StartCoroutine(Knockback(knockbackTime));
-            anim.SetTrigger("Hit");
-            hp -= damege;
-            if(hp <= 0)  //人物血量不能低於0
-            {
-                hp = 0;
+        if(hp > 0)
+        {
+            AccordingDirectionFlip(enemyPosition);
+            currentstate = anim.GetCurrentAnimatorStateInfo(0);
+            if(currentstate.IsName("GetHit") == false && timer >= invincibleTime)
+            {             
+                StartCoroutine(Knockback(knockbackTime));
+                anim.SetTrigger("Hit");
+                hp -= damege;
+                if(hp <= 0)  //人物血量不能低於0
+                {
+                    hp = 0;
+                }
+                HealthBar.HealthCurrent = hp;  //血量連結
+                
+                BlinkPlayer(blinks,blinkTime);
+                timer = 0;  
             }
-            HealthBar.HealthCurrent = hp;  //血量連結
-            
-            BlinkPlayer(blinks,blinkTime);
-            timer = 0;  
         }
+        
     }
     void playerDeath()
     {

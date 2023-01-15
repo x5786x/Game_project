@@ -30,13 +30,14 @@ public class GoToBossroom : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {  
             player.transform.position = playerMovePosition;
-            bossroom = true;
+            bossroom = true; 
             if(Scoreborad.level == 2)
             {
                 bossHp.SetActive(true);
                 BossHealthBar.BossHealthCurrent = 50;
                 BossHealthBar.BossHealthMax = 50;
             }
+            Physics2D.IgnoreLayerCollision(8, 9, false);
         }
     }
 }

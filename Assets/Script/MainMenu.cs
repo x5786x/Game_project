@@ -19,14 +19,14 @@ public class MainMenu : MonoBehaviour
             level_2.gameObject.SetActive(false);
             level_3.gameObject.SetActive(false);
             level_4.gameObject.SetActive(false);    
-            if(Scoreborad.score>=1)
+            if(Scoreborad.score>=2)
                 level_2.gameObject.SetActive(true);
             }
-            if(Scoreborad.score>=2)
+            if(Scoreborad.score>=3)
             {
                 level_3.gameObject.SetActive(true);
             }
-            if(Scoreborad.score>=3)
+            if(Scoreborad.score>=4)
             {
                 level_4.gameObject.SetActive(true);
         }
@@ -46,7 +46,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Level_1()
     {
-        sceneName = "GameTest";
+        sceneName = "Level1";
         Scoreborad.level = 1;
         SceneManager.LoadScene("Loading");
     }
