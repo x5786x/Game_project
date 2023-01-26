@@ -57,7 +57,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Scoreborad.level);
         timer += Time.deltaTime;
         if(!playerDead)
         {

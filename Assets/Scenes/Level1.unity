@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 347565157}
   - component: {fileID: 347565159}
   - component: {fileID: 347565158}
-  - component: {fileID: 347565160}
+  - component: {fileID: 347565161}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -580,7 +580,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347565156}
   m_CullTransparentMesh: 1
---- !u!114 &347565160
+--- !u!114 &347565161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -589,9 +589,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 347565156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b881bbfb80cc64396b00a90c9d8ca1, type: 3}
+  m_Script: {fileID: 11500000, guid: eb47d2ace1684ab449b7a2dde78847f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charsPerSecond: 0.2
+  isActive: 0
 --- !u!1 &393246384 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7853100180182795634, guid: 84338b1052d3bbc47a205ff674f2d414, type: 3}
@@ -681,6 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de130ff8df0bf2b45a65aac189cfca1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typewriter: {fileID: 0}
   portal: {fileID: 169974972}
   dialogBox: {fileID: 287609933}
   Mug_shot_npc_1: {fileID: 813239173}
@@ -793,14 +796,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438389835}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0013330834, w: 0.99999917}
   m_LocalPosition: {x: -35.6, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.153}
 --- !u!224 &447730086 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7853100180724952934, guid: 84338b1052d3bbc47a205ff674f2d414, type: 3}
@@ -29571,6 +29574,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &760469406 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7853100179672349957, guid: 84338b1052d3bbc47a205ff674f2d414, type: 3}
+  m_PrefabInstance: {fileID: 7853100180531999682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &813239173 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 813239173, guid: 84338b1052d3bbc47a205ff674f2d414, type: 3}
@@ -29670,12 +29678,26 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7853100179672349963, guid: 84338b1052d3bbc47a205ff674f2d414, type: 3}
   m_PrefabInstance: {fileID: 7853100180531999682}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 760469406}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &885477071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760469406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb47d2ace1684ab449b7a2dde78847f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charsPerSecond: 0.2
+  isActive: 0
 --- !u!1 &903746303 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 903746303, guid: 84338b1052d3bbc47a205ff674f2d414, type: 3}
@@ -29843,12 +29865,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df8db398c8fabc4486aabef0690df8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typewriter: {fileID: 0}
   dialogBox: {fileID: 19814138}
   sign: {fileID: 982653038}
   dialogBoxText: {fileID: 347565158}
   isPlayerInSign: 0
   count: 0
-  signText: 
 --- !u!212 &982653041
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -31844,13 +31866,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   count: 0
+  typewriter: {fileID: 0}
   waitingTime: 3
   timer: 0
   dialogBox: {fileID: 287609933}
   abc: {fileID: 1475528534}
   Mug_shot_npc_2: {fileID: 903746303}
   dialogBoxText: {fileID: 885477065}
-  signText: 
   isPlayerInSign: 0
 --- !u!70 &1475528536
 CapsuleCollider2D:
@@ -35317,7 +35339,6 @@ GameObject:
   - component: {fileID: 2051345602}
   - component: {fileID: 2051345604}
   - component: {fileID: 2051345603}
-  - component: {fileID: 2051345605}
   m_Layer: 0
   m_Name: pillar
   m_TagString: Untagged
@@ -40965,24 +40986,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &2051345605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2051345601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7df8db398c8fabc4486aabef0690df8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogBox: {fileID: 0}
-  sign: {fileID: 0}
-  dialogBoxText: {fileID: 0}
-  isPlayerInSign: 0
-  count: 0
-  signText: 
 --- !u!1001 &279069050036326676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41581,6 +41584,10 @@ PrefabInstance:
     - target: {fileID: 7853100179672349957, guid: 84338b1052d3bbc47a205ff674f2d414, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7853100179672349957, guid: 84338b1052d3bbc47a205ff674f2d414, type: 3}
+      propertyPath: m_TagString
+      value: Text
       objectReference: {fileID: 0}
     - target: {fileID: 7853100179672349962, guid: 84338b1052d3bbc47a205ff674f2d414, type: 3}
       propertyPath: m_SizeDelta.x
