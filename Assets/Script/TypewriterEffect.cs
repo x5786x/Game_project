@@ -18,7 +18,7 @@ public class TypewriterEffect : MonoBehaviour
     {
         timer = 0;
         isActive = true;
-        charsPerSecond = Mathf.Max(0.2f, charsPerSecond);
+        charsPerSecond = Mathf.Max(0.05f, charsPerSecond);
         myText = GetComponent<Text>();
         myText.text = "";//获取Text的文本信息，保存到words中，然后动态更新文本显示内容，实现打字机的效果
     }
