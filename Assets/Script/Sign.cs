@@ -35,7 +35,7 @@ public class Sign : MonoBehaviour
         {
             count++; // 1
             transform.position = new Vector3(13.66f, -5, 0);
-            Scoreborad.signText = "做的不錯，但你的碎片之旅程才剛\n剛開始你要蒐集四片碎片記得嗎?\n加油吧!!!";
+            Scoreborad.signText = "做的不錯，但你的碎片之旅程才剛剛開始你要蒐集四片碎片記得嗎?加油吧!!!";
         }
         if (Input.GetKeyDown(KeyCode.E) && isPlayerInSign) //在人物範圍內就可點擊E觸發
         {
