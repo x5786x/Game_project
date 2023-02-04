@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Script/Arrow.cs.meta
+guid: fccd8e7454af85b468d31b73314a5c80
+========
+guid: eb47d2ace1684ab449b7a2dde78847f6
+>>>>>>>> 312ed11ace4369ef57fcd4f909d15a5ca320365a:Assets/Script/TypewriterEffect.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
