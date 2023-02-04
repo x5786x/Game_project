@@ -14,6 +14,6 @@ public class PhD : SignCommon
     void Update()
     {
         base.Update();
-        Scoreborad.signText = "吼!我的一個實驗品不見了。你能幫\n我找到他嗎?";
+        Scoreborad.signText = "吼!我的一個實驗品不見了。你能幫我找到他嗎?";
     }
 }

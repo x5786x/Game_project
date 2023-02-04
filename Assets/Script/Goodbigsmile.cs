@@ -27,7 +27,7 @@ public class Goodbigsmile : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(Input.GetKeyDown(KeyCode.E) && isPlayerInSign) //在人物範圍內就可點擊E觸發
+        if(Input.GetKeyDown(KeyCode.E) && isPlayerInSign && count!=3) //在人物範圍內就可點擊E觸發
         {       
             Mug_shot_npc_2.SetActive(true);
             if(count == 0)
@@ -65,7 +65,7 @@ public class Goodbigsmile : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)  //判斷是否在人物範圍外，是就取消顯示ui
     {
         if(other.gameObject.CompareTag("Player") && other.GetType().ToString() == "UnityEngine.CapsuleCollider2D")
-     {
+        {
             isPlayerInSign = false;
             dialogBox.SetActive(false);
             Mug_shot_npc_2.SetActive(false);

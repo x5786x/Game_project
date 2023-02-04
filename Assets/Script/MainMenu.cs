@@ -22,10 +22,10 @@ public class MainMenu : MonoBehaviour
             level_3_lock.gameObject.SetActive(true);
             level_4_lock.gameObject.SetActive(true);    
             if(Scoreborad.score>=2)
+            {
                 level_2_lock.gameObject.SetActive(false);
                 level_2.gameObject.SetActive(true);
-                
-            
+            }  
             if(Scoreborad.score>=3)
             {
                 level_3_lock.gameObject.SetActive(false);
@@ -60,6 +60,18 @@ public class MainMenu : MonoBehaviour
     {
         sceneName = "Level2";
         Scoreborad.level = 2;
+        SceneManager.LoadScene("Loading");
+    }  
+    public void Level_3()
+    {
+        sceneName = "Level3";
+        Scoreborad.level = 3;
+        SceneManager.LoadScene("Loading");
+    }
+    public void Level_4()
+    {
+        sceneName = "Level4";
+        Scoreborad.level = 4;
         SceneManager.LoadScene("Loading");
     }  
 }
