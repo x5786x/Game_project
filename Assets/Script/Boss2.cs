@@ -27,9 +27,7 @@ public class Boss2 : Enemy
     }
     void Update()
     {
-        base.Update();
-        if(hp <= 0)
-            Scoreborad.bossDown = true;   
+        base.Update();  
         time += Time.deltaTime;     
         animInfo = anim.GetCurrentAnimatorStateInfo(0);
         animTime = animInfo.normalizedTime;

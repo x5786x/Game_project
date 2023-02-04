@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private float timer = 0;
+    bool shoot = false;
+    float timer = 0;
     public float attackDelayTime;
     AnimatorStateInfo currentstate;
-    private Animator anim;
+    Animator anim;
     public int damage;
     public bool isboss;
-
+    public GameObject arrow;
+    public GameObject arrowPosition;
+    static public bool attacking;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         Attack();
+        BowAttack();
     }
 
     void Attack()
@@ -37,7 +41,25 @@ public class PlayerAttack : MonoBehaviour
         }
         
     }
-    
+    void BowAttack()
+    {
+        currentstate = anim.GetCurrentAnimatorStateInfo(0);
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            if(!currentstate.IsName("Bow"))
+            {
+                attacking = true;
+                anim.SetTrigger("Bow");
+                shoot = true;
+            }     
+        } 
+        if(currentstate.normalizedTime >= 0.875f && currentstate.IsName("Bow") && shoot)
+        {
+            Instantiate(arrow, arrowPosition.transform.position, new Quaternion(0, 0, 0, 0));
+            shoot = false;
+            attacking = false;
+        }
+    }
     void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.gameObject.tag == "Enemy" )

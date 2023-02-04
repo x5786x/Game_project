@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour
     public AnimatorStateInfo animInfo;
     public float moveForce = 3.0f;
     private Vector2 enemyPosition;
+    public GameObject moveLimitMin;
+    public GameObject moveLimitMax;
     // Start is called before the first frame update
     public void Start()
     {
@@ -69,6 +71,7 @@ public class Enemy : MonoBehaviour
             if(hp <= 0)
             {
                 hp = 0;
+                Scoreborad.bossDown = true;
                 GoToBossroom.bossroom = false;
             }
             BossHealthBar.BossHealthCurrent = hp;

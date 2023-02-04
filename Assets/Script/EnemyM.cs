@@ -69,8 +69,7 @@ public class EnemyM : Enemy
     }
     public void MAttackEventOn()
     {       
-        attackCollider.enabled = true;
-        
+        attackCollider.enabled = true;    
     }
     public void MAttackEventOff()
     {

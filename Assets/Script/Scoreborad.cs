@@ -4,6 +4,8 @@ using UnityEngine;
 
 public static class Scoreborad
 {
+    public static string signText = "";
+    public static int count = 0;
     public static int score = 0;
     public static int level;
     public static bool bossDown = false;

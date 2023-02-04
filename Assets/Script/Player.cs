@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     static public bool idleChange = false;
     [SerializeField] GameObject ReplayButton;
     [SerializeField] GameObject MainButton;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -57,23 +58,21 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Scoreborad.level);
         timer += Time.deltaTime;
         if(!playerDead)
         {
             if(!Scoreborad.eventOn)
             {
-            if((!knockbacking && !dashing))
-            {
-                Move();
-                Jump();    
-            }
-            if(Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-            {
-                anim.SetTrigger("Dash");
-                StartCoroutine("Dash");
-            }
-            SwitchAnimation(); 
+                if((!knockbacking && !dashing))
+                {
+                    Jump();    
+                }
+                if(Input.GetKeyDown(KeyCode.LeftShift) && canDash && !PlayerAttack.attacking)
+                {
+                    anim.SetTrigger("Dash");
+                    StartCoroutine("Dash");
+                }
+                SwitchAnimation(); 
             }   
             if(Scoreborad.eventOn)
             {
@@ -91,12 +90,16 @@ public class Player : MonoBehaviour
     
     void FixedUpdate() 
     {
-        if(!playerDead && !Scoreborad.eventOn)
+        if(!playerDead && !Scoreborad.eventOn && !PlayerAttack.attacking)
         {
-            if((!knockbacking && !dashing))
+            if(!knockbacking && !dashing )
             {
                 Move();   
             }
+        }
+        else if(PlayerAttack.attacking)
+        {
+            playerRb.velocity = Vector2.down;
         }
     }
     void CheckGround()
@@ -174,6 +177,7 @@ public class Player : MonoBehaviour
             if(currentstate.IsName("GetHit") == false && timer >= invincibleTime)
             {             
                 StartCoroutine(Knockback(knockbackTime));
+                PlayerAttack.attacking = false;
                 anim.SetTrigger("Hit");
                 hp -= damege;
                 if(hp <= 0)  //人物血量不能低於0
@@ -199,6 +203,7 @@ public class Player : MonoBehaviour
             Destroy(gameObject);          
         }
     }
+    
     IEnumerator Dash()
     {
         canDash = false;

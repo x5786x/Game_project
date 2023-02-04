@@ -3,40 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 public class teach : MonoBehaviour
 {
+    public TypewriterEffect typewriter;
     public GameObject dialogBox;
     public GameObject sign;
     public Text dialogBoxText;
     public bool isPlayerInSign;
     public int count = 0;
-    public string signText;
+    
     // Start is called before the first frame update
     void Start()
     {
-        sign.SetActive(true); 
+        typewriter = dialogBox.GetComponentInChildren<TypewriterEffect>();
+        sign.SetActive(true);
         dialogBox.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && isPlayerInSign) //在人物範圍內就可點擊E觸發
-        {       
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerInSign) //在人物範圍內就可點擊E觸發
+        {
+            switch (Scoreborad.count)
+            {
+                case 0:
+                    {
+                        Scoreborad.signText = "嗨嗨我是告示牌";
+                        break;
+                    }
+                case 1:
+                    {   
+
+                        Scoreborad.signText = "左右移動空白鍵跳躍進行閃現";
+                        break;
+                    }
+                case 2:
+                    {
+                        Scoreborad.signText = "\"J\"鍵進行攻擊。";
+                        break;
+                    }
+                case 3:
+                    {
+                        Scoreborad.signText = "加油!!!";
+                        Scoreborad.count = -1;
+                        break;
+                    }
+            }    
+            Scoreborad.count++;
             dialogBox.SetActive(true);
-            if(count == 0)
-                signText = "嗨嗨我是告示牌~~";               
-            if(count == 1) 
-                signText = "\"A、D左右移\"動，\"空白鍵\"跳躍，\"SHIFT\"進行閃現。";               
-            if(count == 2)
-                signText = "\"J\"鍵進行攻擊。";
-            if(count == 3){
-                signText = "加油!!!";
-                count = 0;
-        }
-            count++;
-            dialogBoxText.text = signText;
-            dialogBox.SetActive(true);   
+            typewriter.StartEffect();
         }
     }
     void OnTriggerEnter2D(Collider2D other) //判斷是否在人物範圍內
@@ -54,8 +71,7 @@ public class teach : MonoBehaviour
             isPlayerInSign = false;
             dialogBox.SetActive(false);
             count = 0;
-            
-
+            typewriter.OnFinish();
         }
     }
 }

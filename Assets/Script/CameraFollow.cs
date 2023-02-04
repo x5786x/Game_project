@@ -22,7 +22,6 @@ public class CameraFollow : MonoBehaviour
     }
     void LateUpdate() 
     {
-        Debug.Log(minPosition);
         if(Player != null)
         {
             if(transform.position != Player.position)

@@ -13,7 +13,6 @@ public class Boss1 : Enemy
     void Start()
     {
         base.Start();  
-        Scoreborad.bossDown = false;
         rb = GetComponent<Rigidbody2D>();
     }
     
@@ -21,7 +20,6 @@ public class Boss1 : Enemy
     {   
         if(hp <= 0)
         {    
-            Scoreborad.bossDown = true;
             goodbigsmile.SetActive(true);
         } 
         base.Update();

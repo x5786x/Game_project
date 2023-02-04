@@ -575,7 +575,7 @@ MonoBehaviour:
   damage: 2
   falshTime: 0.1
   hitEffect: {fileID: 7232399249219212113, guid: 56f01e868f0371e4187abd6d62228c97, type: 3}
-  playerTransform: {fileID: 132303721}
+  playerTransform: {fileID: 0}
   anim: {fileID: 132303724}
   srenderer: {fileID: 132303720}
   rb: {fileID: 132303722}
