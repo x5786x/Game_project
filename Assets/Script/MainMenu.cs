@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
-    public GameObject level_2, level_3, level_4;
+    public GameObject level_2, level_3, level_4,level_2_lock,level_3_lock,level_4_lock;
     static public string sceneName;
     void Start() 
     {
@@ -14,20 +14,26 @@ public class MainMenu : MonoBehaviour
     }
     void Update()
     {
-        if(true)
-        {
+        
             level_2.gameObject.SetActive(false);
             level_3.gameObject.SetActive(false);
-            level_4.gameObject.SetActive(false);    
+            level_4.gameObject.SetActive(false);
+            level_2_lock.gameObject.SetActive(true);
+            level_3_lock.gameObject.SetActive(true);
+            level_4_lock.gameObject.SetActive(true);    
             if(Scoreborad.score>=2)
+                level_2_lock.gameObject.SetActive(false);
                 level_2.gameObject.SetActive(true);
-            }
+                
+            
             if(Scoreborad.score>=3)
             {
+                level_3_lock.gameObject.SetActive(false);
                 level_3.gameObject.SetActive(true);
             }
             if(Scoreborad.score>=4)
             {
+                level_4_lock.gameObject.SetActive(false);
                 level_4.gameObject.SetActive(true);
         }
         

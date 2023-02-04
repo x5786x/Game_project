@@ -12,4 +12,6 @@ public static class Scoreborad
     public static bool restart = false;
     public static bool eventOn = false;
     public static bool boss1Attack2 = false;
+    public static int count = 0;
+    public static string signText ;
 }

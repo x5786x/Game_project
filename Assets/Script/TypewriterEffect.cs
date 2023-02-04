@@ -42,7 +42,6 @@ public class TypewriterEffect : MonoBehaviour {
             }
         }
     }
-
     public void OnFinish(){
         isActive = false;
         timer = 0;

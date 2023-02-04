@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class teach : MonoBehaviour
 {
     public TypewriterEffect typewriter;
+
     public GameObject dialogBox;
     public GameObject sign;
     public Text dialogBoxText;

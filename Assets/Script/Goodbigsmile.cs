@@ -44,6 +44,7 @@ public class Goodbigsmile : MonoBehaviour
             }   
             count++;
             dialogBox.SetActive(true);   
+            typewriter.StartEffect();
         }
         if(count >= 4 && timer >= 2.0f)
         {
@@ -64,7 +65,7 @@ public class Goodbigsmile : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)  //判斷是否在人物範圍外，是就取消顯示ui
     {
         if(other.gameObject.CompareTag("Player") && other.GetType().ToString() == "UnityEngine.CapsuleCollider2D")
-        {
+     {
             isPlayerInSign = false;
             dialogBox.SetActive(false);
             Mug_shot_npc_2.SetActive(false);
