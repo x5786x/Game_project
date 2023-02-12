@@ -35,6 +35,11 @@ public class Arrow : MonoBehaviour
             other.gameObject.GetComponent<Enemy>().TakeDamage(2, isboss);
             Destroy(gameObject);
         }
+        else if(other.CompareTag("Shield"))
+        {
+            other.gameObject.GetComponent<BossShield>().TakeDamage(2);
+            PlayerAttack.hit = true;
+        }
         if(other.gameObject.CompareTag("Wall"))
         {
             Destroy(gameObject);

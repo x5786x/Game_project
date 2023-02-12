@@ -29,7 +29,7 @@ public class InstantiateMirror :  MonoBehaviour
         }
         else
         {   
-            if(getmirror || Goodbigsmile.end)
+            if(getmirror)
                 portal.SetActive(true);
         }
         
@@ -40,7 +40,8 @@ public class InstantiateMirror :  MonoBehaviour
         {
             Destroy(GameObject.FindGameObjectWithTag("Mirror"));
             getmirror = true;
-            Scoreborad.score = Scoreborad.level + 1;
+            if(Scoreborad.score <= 3)
+                Scoreborad.score = Scoreborad.level + 1;
         }
     }
 }

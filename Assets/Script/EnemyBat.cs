@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyBat : Enemy
 {
-    
     public float trackDistance;
     public float speed;
     public float startWaitTime;
@@ -26,15 +25,19 @@ public class EnemyBat : Enemy
     void Update()
     {
         base.Update();
+        timer += Time.deltaTime;
         distance = (transform.position - playerTransform.position).sqrMagnitude;
-        if(distance <= trackDistance)
+        if(timer >= waitTime)
         {
-            transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
-            waitTime = 0;
-        }
-        else
-        {
-            transform.position = Vector2.MoveTowards(transform.position, movePos.position, speed*Time.deltaTime);
+            if(distance <= trackDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+                waitTime = 0;
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, movePos.position, speed*Time.deltaTime);
+            }    
         }
         
         if(Vector2.Distance(transform.position, movePos.position) < 0.1f)

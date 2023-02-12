@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class PhD : SignCommon
 {
-    // Start is called before the first frame update
+    public GameObject protal;
     void Start()
     {
         base.Start();
+        Scoreborad.complete = false;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         base.Update();
         Scoreborad.signText = "吼!我的一個實驗品不見了。你能幫我找到他嗎?";
+        if(Scoreborad.complete)
+            protal.SetActive(true);
     }
 }

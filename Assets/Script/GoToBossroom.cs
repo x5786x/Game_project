@@ -22,7 +22,6 @@ public class GoToBossroom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -31,7 +30,7 @@ public class GoToBossroom : MonoBehaviour
         {  
             player.transform.position = playerMovePosition;
             bossroom = true; 
-            if(Scoreborad.level == 2)
+            if(Scoreborad.level == 2 || Scoreborad.level == 3)
             {
                 bossHp.SetActive(true);
                 BossHealthBar.BossHealthCurrent = 50;

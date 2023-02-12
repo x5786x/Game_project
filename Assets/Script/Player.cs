@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     static public float hitWaitingTime;
     bool canDash = true;
     bool dashing = false;
+    public CameraShake cameraShake;
     public float dashTime;
     public float dashSpeed;
     public float dashCooldownTime;
@@ -41,7 +42,6 @@ public class Player : MonoBehaviour
     static public bool idleChange = false;
     [SerializeField] GameObject ReplayButton;
     [SerializeField] GameObject MainButton;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
         poly = GameObject.FindGameObjectWithTag("PlayerAttack").GetComponent<PolygonCollider2D>();
         hitWaitingTime = knockbackTime;
         playerDead = false;
+        
     }
 
     // Update is called once per frame
@@ -85,7 +86,6 @@ public class Player : MonoBehaviour
         {
             playerDeath();            
         }    
-         
     }
     
     void FixedUpdate() 
@@ -189,6 +189,7 @@ public class Player : MonoBehaviour
                 BlinkPlayer(blinks,blinkTime);
                 timer = 0;  
             }
+            StartCoroutine(cameraShake.Shake(0.1f, 0.08f));
         }
         
     }
@@ -198,8 +199,8 @@ public class Player : MonoBehaviour
         playerDead = true;
         currentstate = anim.GetCurrentAnimatorStateInfo(0);
         if(currentstate.normalizedTime >= 0.95 && currentstate.IsName("Death"))
-        {     
-            Dietime();     
+        {    
+            Dietime();   
             Destroy(gameObject);          
         }
     }
@@ -250,5 +251,6 @@ public class Player : MonoBehaviour
         ReplayButton.SetActive(true);
         MainButton.SetActive(true);
     }
+
     
 }

@@ -682,7 +682,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 20/20
+  m_Text: '20/20
+
+'
 --- !u!1 &7853100179686039982
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,6 +888,18 @@ MonoBehaviour:
       - m_Target: {fileID: 7853100180724952930}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7853100180724952930}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ButtonClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1179,7 +1193,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7853100180499551428}
         m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: MainMenu
+        m_MethodName: GoToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7853100180724952930}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ButtonClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1801,6 +1827,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7853100180724952930}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ButtonClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7853100180499551430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,6 +1928,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72dee658d9e32194fb761b77b4787887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickAudio: {fileID: 7888422438892287306, guid: 1a6128ba8dc791b448268276997570eb, type: 3}
+  clip: {fileID: 8300000, guid: 892ca399f04b9694282a9be82e0810bc, type: 3}
   healthText: {fileID: 7853100179674065294}
 --- !u!1 &7853100180520765199
 GameObject:
@@ -2027,6 +2067,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7853100180499551428}
+        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
+        m_MethodName: ButtonClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7853100180724952925
 GameObject:
   m_ObjectHideFlags: 0
@@ -2151,6 +2203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899af85471fc90c4091c1cc5f7583ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickAudio: {fileID: 7888422438892287306, guid: 1a6128ba8dc791b448268276997570eb, type: 3}
+  clip: {fileID: 8300000, guid: 892ca399f04b9694282a9be82e0810bc, type: 3}
   PasueMenuUI: {fileID: 7853100180359466009}
 --- !u!1 &7853100180829408598
 GameObject:
@@ -2357,6 +2411,18 @@ MonoBehaviour:
       - m_Target: {fileID: 7853100180724952930}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7853100180724952930}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ButtonClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

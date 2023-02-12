@@ -30,18 +30,11 @@ public class SwitchLevelAnimtion : MonoBehaviour
         if(level)
         {
             if(alpha == 0)
-            {
-
                 loadingPanel.SetActive(false);
-            }
             else
-            {
                 panel.color = new Color(0, 0, 0, alpha -= speed*Time.deltaTime);
-            }
         }
         if(levelMenu)
-        {
             panel.color = new Color(0, 0, 0, alpha += speed*Time.deltaTime);
-        }
     }
 }

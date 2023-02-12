@@ -15,6 +15,9 @@ TagManager:
   - Mirror
   - Ground
   - Text
+  - Shield
+  - Boss4
+  - Sound
   layers:
   - Default
   - TransparentFX
@@ -26,7 +29,7 @@ TagManager:
   - Background
   - Enemy
   - Player
-  - 
+  - Boss4
   - 
   - 
   - 

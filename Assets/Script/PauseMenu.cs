@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public GameObject buttonClickAudio;
+    public AudioClip clip;
     private static bool GamePasue = false;
     public GameObject PasueMenuUI;
     // Start is called before the first frame update
@@ -49,5 +51,18 @@ public class PauseMenu : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+    public void ButtonClickSound()
+    { 
+        Instantiate(buttonClickAudio);
+    }
+    void WaitTime()
+    {
+        float waitTime = clip.length;
+        float timer = 0;
+        while(timer <= waitTime)
+        {
+            timer += Time.deltaTime;
+        }
     }
 }

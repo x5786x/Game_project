@@ -9,12 +9,13 @@ public class SignCommon : MonoBehaviour
     public Text dialogBoxText;
     public bool isPlayerInSign;
     public float timer = 0;
-    public int count;
+    public int count = -1;
+    public bool turnon = true;
     // Start is called before the first frame update
     public void Start()
     {
         typewriter = dialogBox.GetComponentInChildren<TypewriterEffect>();
-        count = 0;
+        count = -1;
         isPlayerInSign = false;
         dialogBox.SetActive(false);
     }
@@ -22,10 +23,13 @@ public class SignCommon : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerInSign) //在人物範圍內就可點擊E觸發
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerInSign && turnon) //在人物範圍內就可點擊E觸發
         {
-            dialogBoxText.text = Scoreborad.signText;
+            Scoreborad.complete = false;
+            dialogBoxText.text = "";
             dialogBox.SetActive(true);
+            count++;
+            typewriter.StartEffect();
         }
     }
     public void OnTriggerEnter2D(Collider2D other) //判斷是否在人物範圍內

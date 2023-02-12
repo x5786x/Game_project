@@ -30,14 +30,16 @@ public class Sign : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+        
         if (Player.enemyKilled == true && count == 0)
         {
             count++; // 1
             transform.position = new Vector3(13.66f, -5, 0);
             Scoreborad.signText = "做的不錯，但你的碎片之旅程才剛剛開始你要蒐集四片碎片記得嗎?加油吧!!!";
         }
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerInSign) //在人物範圍內就可點擊E觸發
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerInSign && count > 0) //在人物範圍內就可點擊E觸發
         {
+            Scoreborad.signText = "做的不錯，但你的碎片之旅程才剛剛開始你要蒐集四片碎片記得嗎?加油吧!!!";
             dialogBox.SetActive(true);
             typewriter.StartEffect();
             Mug_shot_npc_1.SetActive(true);
@@ -55,7 +57,6 @@ public class Sign : MonoBehaviour
         {
             timer = 0;
             Scoreborad.signText = "知道要怎麼移動嗎?";
-            dialogBoxText.text = Scoreborad.signText;
             dialogBox.SetActive(true);
             Mug_shot_npc_1.SetActive(true);
         }

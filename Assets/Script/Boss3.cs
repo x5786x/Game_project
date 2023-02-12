@@ -86,7 +86,7 @@ public class Boss3 : Enemy
             } 
             if(animInfo.IsName("Attack") && done == false)
             {
-                playerPosition = new Vector3(playerTransform.position.x + 1.67f , playerTransform.position.y + 1.96f, -5);
+                playerPosition = new Vector3(playerTransform.position.x + 1.67f , -12.86f, -5);
                 if(animInfo.normalizedTime >= 0.8f)
                 {
                     Instantiate(attack, playerPosition, new Quaternion(0, 0, 0, 0));

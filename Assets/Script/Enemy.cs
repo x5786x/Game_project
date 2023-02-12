@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public AudioSource hitAudio;
     public float distance;
     public float timer;
     private Vector2 direction;
@@ -17,7 +18,7 @@ public class Enemy : MonoBehaviour
     public Animator anim;
     public SpriteRenderer srenderer;
     private Player playerHp;
-    private Color originalColor;
+    public Color originalColor;
     public Rigidbody2D rb;
     public AnimatorStateInfo animInfo;
     public float moveForce = 3.0f;
@@ -27,6 +28,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        timer = 0;
         BossHealthBar.BossHealthMax = hp;
         BossHealthBar.BossHealthCurrent = hp;
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -64,12 +66,14 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage, bool isboss) // 判斷敵人是否為boss和敵人受傷
     {  
         hp -= damage;
+        hitAudio.Play();
         hitEffectPostion = new Vector3(transform.position.x, transform.position.y, -5); // z軸負值才正常顯示   
         Hit(falshTime);
         if(isboss == true)
         {
             if(hp <= 0)
             {
+                Player.enemyKilled = true;
                 hp = 0;
                 Scoreborad.bossDown = true;
                 GoToBossroom.bossroom = false;
@@ -118,3 +122,4 @@ public class Enemy : MonoBehaviour
         Physics2D.IgnoreLayerCollision(8, 9, false); // 開啟
     }
 }
+    

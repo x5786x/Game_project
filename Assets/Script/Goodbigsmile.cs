@@ -14,7 +14,7 @@ public class Goodbigsmile : MonoBehaviour
     public GameObject Mug_shot_npc_2;
     public Text dialogBoxText;
     public bool isPlayerInSign;
-    static public bool end;
+    static public bool end = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +27,7 @@ public class Goodbigsmile : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(Input.GetKeyDown(KeyCode.E) && isPlayerInSign && count!=3) //在人物範圍內就可點擊E觸發
+        if(Input.GetKeyDown(KeyCode.E) && isPlayerInSign && count!=4) //在人物範圍內就可點擊E觸發
         {       
             Mug_shot_npc_2.SetActive(true);
             if(count == 0)

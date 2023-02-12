@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Loading : MonoBehaviour
 {
+    public GameObject Audio;
     int count = 0;
     private float timer = 0;
     private float waitTime = 3;
@@ -16,15 +17,18 @@ public class Loading : MonoBehaviour
     void Start()
     {
         StartCoroutine("LoadScene");
+        Audio = GameObject.FindGameObjectWithTag("Sound");
+        Destroy(Audio);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
     }
     IEnumerator LoadScene()
     {
-        async = SceneManager.LoadSceneAsync(MainMenu.sceneName);
+        async = SceneManager.LoadSceneAsync(Scoreborad.sceneName);
         async.allowSceneActivation = false;
         while(!async.isDone)
         {

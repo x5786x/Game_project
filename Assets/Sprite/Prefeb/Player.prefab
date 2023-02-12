@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4335afd43b9991d40a898c87cbd7cc05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraShake: {fileID: 0}
   dashTime: 0.2
   dashSpeed: 20
   dashCooldownTime: 2
@@ -221,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generateMirrorPosition: {fileID: 0}
-  mirror1: {fileID: 5178031663689295661, guid: d7e62743bf407394a8259ff09ee269f6, type: 3}
+  mirror1: {fileID: 2826278285264008895, guid: 75934e132d1729f44b56e9b1eb0b71cd, type: 3}
   portal: {fileID: 0}
 --- !u!1 &7701878759347228694
 GameObject:
@@ -271,6 +272,11 @@ MonoBehaviour:
   attackDelayTime: 0.4
   damage: 3
   isboss: 0
+  arrowAudio: {fileID: 0}
+  attackAudio: {fileID: 2891648984711735303, guid: 085df641070c7ed46908d955301ba766, type: 3}
+  arrow: {fileID: 5913118869124121988, guid: 2a89c9c13dd079d4b834554d4ea14fb7, type: 3}
+  arrowPosition: {fileID: 8047742903848872569}
+  freezeFrameDuration: 0.1
 --- !u!60 &7701878759347228691
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -312,13 +318,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4724360040852427026}
-  m_Layer: 0
-  m_Name: Arrow
-  m_TagString: Untagged
+  m_Layer: 9
+  m_Name: ArrowPosition
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4724360040852427026
 Transform:
   m_ObjectHideFlags: 0
@@ -327,7 +333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8047742903848872569}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.409, y: -0.286, z: 0}
+  m_LocalPosition: {x: 1.555, y: -0.286, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

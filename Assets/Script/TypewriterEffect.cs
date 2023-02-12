@@ -7,7 +7,6 @@ public class TypewriterEffect : MonoBehaviour
 
     
     public float charsPerSecond = 0.02f;//打字时间间隔
-
     public bool isActive = false;
     private float timer;//计时器
     private Text myText;
@@ -31,7 +30,6 @@ public class TypewriterEffect : MonoBehaviour
     {
         isActive = true;
         currentPos = 0;
-
     }
     /// <summary>
     /// 执行打字任务
@@ -40,6 +38,7 @@ public class TypewriterEffect : MonoBehaviour
     {
 
         if(isActive){
+            Scoreborad.complete = false;
             timer += Time.deltaTime;
             if(timer>=charsPerSecond){//判断计时器时间是否到达
                 timer = 0;
@@ -59,5 +58,6 @@ public class TypewriterEffect : MonoBehaviour
         timer = 0;
         currentPos = 0;
         myText.text = Scoreborad.signText;
+        Scoreborad.complete = true;
     }
 }

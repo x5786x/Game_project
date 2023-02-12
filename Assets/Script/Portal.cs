@@ -36,6 +36,9 @@ public class Portal : MonoBehaviour
         panel.SetActive(true);
         yield return new WaitForSeconds(0.6f);
         inPortal = true;
-        SceneManager.LoadScene("Level menu");
+        if(Scoreborad.FinallBossDown)
+            SceneManager.LoadScene("End");
+        else
+            SceneManager.LoadScene("Level menu");
     }
 }

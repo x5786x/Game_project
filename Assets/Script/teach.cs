@@ -37,12 +37,12 @@ public class teach : MonoBehaviour
                 case 1:
                     {   
 
-                        Scoreborad.signText = "左右移動空白鍵跳躍進行閃現";
+                        Scoreborad.signText = "\"A\"\"D\"移動空白鍵跳躍\"Shift\"進行衝刺";
                         break;
                     }
                 case 2:
                     {
-                        Scoreborad.signText = "\"J\"鍵進行攻擊。";
+                        Scoreborad.signText = "\"J\"鍵進行普通攻擊，\"K\"鍵進行射擊";
                         break;
                     }
                 case 3:
