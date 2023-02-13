@@ -84,7 +84,7 @@ public class Boss2 : Enemy
     }
     void CheckGround()
     {
-        if(downAttackCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if(bossCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             animSpeed = 1;
         }
