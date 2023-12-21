@@ -1,4 +1,4 @@
-#define _CRT_SECURE_WARINRINGS
+#define _CRT_SECURE_NO_WARNINGS
 #include "user_authentication.h"
 #include <stdio.h>
 #include <string.h>
@@ -12,7 +12,7 @@ int loadUsersFromFile(User* users, int max_users)
 	}
 
 	int num_users = 0;
-	while (fscanf(usersdata, "%s %s %d", (users + num_users) -> username, (users + num_users) -> password, (users + num_users)->money) == 3)
+	while (fscanf(usersdata, "%s %s %d", (users + num_users) -> username, (users + num_users) -> password, &((users + num_users)->money)) == 3)
 	{
 		num_users++;
 		if (num_users > max_users)
@@ -29,17 +29,17 @@ int saveUsersToFile(User user)
 		printf("無法寫入使用者資料\n");
 		return 0;
 	}
-	fprintf(usersdata, "%s %s", user.username, user.password);
+	fprintf(usersdata, "%s %s %d", user.username, user.password, user.money);
 	fclose(usersdata);
 	return 1;
 }
 
 void regsiterUser(User *user)
 {
-	User user;
 	do {
-		printf("請輸入使用者名稱: "); puts(user->username);
-		printf("請輸入密碼: "); puts(user->password);
+		rewind(stdin);
+		printf("請輸入使用者名稱: "); scanf(" %s", user->username);
+		printf("請輸入密碼: "); scanf(" %s", user->password);
 		user -> money = 1000;
 		if (saveUsersToFile(*user))
 			break;
@@ -55,7 +55,7 @@ int loginUser(User *user, int max_users)
 	loadUsersFromFile(&usersdata, max_users);
 	for (int i = 0; i < 50; i++)
 	{
-		if (user->username == usersdata[i].username && user->password == usersdata[i].password)
+		if ( (strcmp(user->username, usersdata[i].username) == 0) && (strcmp(user->password, usersdata[i].password) == 0))
 		{
 			printf("登入成功!\n");
 			user->money = usersdata[i].money;

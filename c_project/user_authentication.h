@@ -12,6 +12,6 @@ typedef struct {
 int saveUsersToFile(User*);
 int loadUsersFromFile(User);
 void regsiterUser(User*);
-int loginUser(User);
+int loginUser(User*, int);
 
 #endif

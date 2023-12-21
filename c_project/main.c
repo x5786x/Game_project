@@ -1,4 +1,4 @@
-#define _CRT_SECURE_WARINRINGS
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -29,47 +29,91 @@ void initializeDeck(Card*); // 初始化牌組
 void shuffleDeck(Card*); // 洗牌
 void initializePlayer(Player*); // 每回合重製玩家數值
 void playerBet(Player*); // 玩家下注
-
+void firstRound(Player*); // 第一回合發牌
+void printBasicInfo(User);
 
 int main()
 {
 	User user;
-	Player player;
+	Player player, banker;
 	Card deck[NSUFTS * NRANKS];
-	char q;
+	char ans, flag;
+	int n;
 	srand((unsigned)time(NULL));
-
-	// 登入&註冊階段
 	while (1)
 	{
-		printf("請問要登入還是註冊(1為登入，2為註冊): ");
-		scanf(" %c", &q);
-		switch (q)
+		flag = 0;
+
+		// 登入&註冊階段
+		while (flag != 1)
 		{
+			printf("請問要登入還是註冊(1為登入、2為註冊、0為退出): ");
+			scanf(" %c", &ans);
+			// 判斷使用者選擇註冊、登入、退出
+			switch (ans)
+			{
 			case '1':
 				printf("請輸入使用者名稱: ");
-				scanf(user.username);
+				scanf(" %s", user.username);
 				printf("請輸入密碼: ");
-				scanf(user.password);
-				loginUser(user, MAX_USERS);
+				scanf(" %s", user.password);
+				if (loginUser(&user, MAX_USERS))
+					flag = 1;
+				else
+					flag = 0;
 				break;
 			case '2':
 				regsiterUser(&user);
+				flag = 1;
+				break;
+			case '0':
+				printf("...程式結束...\n");
+				Sleep(1000);
+
+			}
+		}
+
+		//顯示玩家訊息
+		printf("玩家名稱 %s\n", user.username);
+		printf("玩家剩餘金錢: %d\n", user.money);
+
+		printf("是否開始遊戲? (1為開始、0為上一步): ");
+		scanf(" %c", &ans);
+		if (ans == '0')
+		{
+			system("cls");
+			continue;
+		}
+			
+		while (1)
+		{
+			// 初始化排組、玩家及洗牌
+			initializeDeck(deck);
+			shuffleDeck(deck);
+			initializePlayer(&player); initializePlayer(&banker);
+			n = 0;
+
+			// 下注階段
+			playerBet(&player, user);
+
+
+
+			
+
+
 		}
 	}
-
-		
-	initializeDeck(deck);
-	shuffleDeck(deck);
-
-	while (1)
-	{
-
-	}
+	
+	
+	
 
 	
 }
 
+void printBasicInfo(User user)
+{
+	
+}
 
 void initializeDeck(Card *deck) 
 {
@@ -118,8 +162,20 @@ void initializePlayer(Player* player)
 	player->bet = 0;
 }
 
-void playerBet(Player* player)
+void playerBet(Player* player, User user)
 {
-	printf("請下注: ");
-	scanf("%d", player->bet);
+	while (1)
+	{
+		printf("請下注(目前持有金額為%d): ", user.money);
+		scanf("%d", &(player->bet));
+		if (player->bet > user.money)
+			printf("輸入金額錯誤,請重新輸入\n");
+		else
+			break;
+	}
+}
+
+void firstRound(Player* player, int *n)
+{
+	
 }
