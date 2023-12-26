@@ -1,1 +1,2 @@
 D:\c_project\c_project\x64\Debug\c_project.exe
+F:\c_project\c_project\x64\Debug\c_project.exe
